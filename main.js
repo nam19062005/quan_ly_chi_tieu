@@ -15,8 +15,7 @@ function taoID() {
 
 //3. Khởi tạo giao dịch
 const localStorageTransactions = JSON.parse(
-  localStorage.getItem("transactions");
-
+  localStorage.getItem("transactions")
 //localStorage là bộ nhớ tạm của trình duyệt, dòng này lấy dữ liệu đã lưu tên transactions
 );
 let transactions =
@@ -52,9 +51,9 @@ function tinhtien() {
     .reduce((acc, item) => (acc += item.amount), 0);
   const total = thu - chi;
   // cập nhật lên giao diện
-  sodu.innerText = "${total.toLocaleString("vi-VN")} đ";
-  nhantien.innerText = "+${thu.toLocaleString("vi-VN")} đ";
-  tieutien.innerText = "-${chi.toLocaleString("vi-VN")} đ";
+sodu.innerText = `${total.toLocaleString("vi-VN")} đ`;
+  nhantien.innerText = `+${thu.toLocaleString("vi-VN")} đ`;
+  tieutien.innerText = `-${chi.toLocaleString("vi-VN")} đ`;
 }
 //6.xu li khi bấm nút
 function nutgiaodich(e) {
