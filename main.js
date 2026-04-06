@@ -15,7 +15,7 @@ function taoID() {
 
 //3. Khởi tạo giao dịch
 const localStorageTransactions = JSON.parse(
-  localStorage.getItem("transactions"),
+  localStorage.getItem("transactions");
 
 //localStorage là bộ nhớ tạm của trình duyệt, dòng này lấy dữ liệu đã lưu tên transactions
 );
