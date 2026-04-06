@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý chi tiêu</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- khối tổng quan -->
+    <div class="tongquan">
+      <header><h1>Quản Lý chi tiêu cá nhân</h1></header>
+      <!-- khối 1 -->
+      <section class="khoisodu">
+        <h2>Số dư hiện tại</h2>
+        <h3 id="sodu">0 đ</h3>
+        <div class="thunhap">
+          <div class="box_income">
+            <h4>thu nhập</h4>
+            <p id="nhantien" class="moneycome">+0 đ</p>
+          </div>
+          <div class="box_out">
+            <h4>chi tiêu</h4>
+            <p id="tieutien" class="moneyout">-0 đ</p>
+          </div>
+        </div>
+      </section>
+      <!-- lich su giao dich -->
+      <section class="lichsu">
+        <h3>Lịch sử chi tiêu</h3>
+        <ul id="list" class="list"></ul>
+      </section>
+
+      <!-- them giao dich moi -->
+      <section class="addgiaodich">
+        <h3>Thêm giao dịch</h3>
+        <form id="form">
+          <div class="form_control">
+            <label for="text">Tên giao dịch</label>
+            <input
+              type="text"
+              name=""
+              id="text"
+              placeholder="Nhập tên giao dịch(VD:ăn, quần áo,...)"
+            />
+          </div>
+          <div class="form_control">
+            <label for="type">Loại giao dịch</label>
+            <select id="type">
+              <option value="chi">Chi tiêu</option>
+              <option value="thu">Thu nhập</option>
+            </select>
+          </div>
+          <div class="form_control">
+            <label for="sotien">Số tiền(đ)</label>
+            <input
+              type="number"
+              id="sotien"
+              placeholder="Nhập số tiền"
+              required
+              min="1"
+            />
+          </div>
+          <button type="submit" class="btn">Thêm giao dịch</button>
+        </form>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,218 @@
+/* 1. Thiết lập biến màu sắc để giao diện đồng bộ */
+:root {
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --primary-color: #6366f1; /* Màu chủ đạo cho nút bấm */
+    --income-color: #10b981;  /* Màu xanh lá cho Thu nhập */
+    --expense-color: #ef4444; /* Màu đỏ cho Chi tiêu */
+    --bg-color: #f8fafc;      /* Màu nền trang web */
+    --text-color: #334155;    /* Màu chữ */
+}
+
+/* 2. Reset CSS cơ bản */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* 3. Khối tổng quan (Container bọc ngoài cùng) */
+.tongquan {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #0f172a;
+    text-transform: capitalize;
+}
+
+h3 {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+    margin: 25px 0 15px;
+    font-size: 18px;
+}
+
+/* 4. Khối 1: Số dư hiện tại */
+.khoisodu {
+    text-align: center;
+}
+
+.khoisodu h2 {
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#sodu {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 10px 0 20px;
+}
+
+/* 5. Khối Thu/Chi */
+.thunhap {
+    background-color: #ffffff;
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.box_income, .box_out {
+    flex: 1;
+    text-align: center;
+}
+
+.box_income {
+    border-right: 1px solid #e2e8f0; /* Dòng kẻ ngăn cách ở giữa */
+}
+
+.thunhap h4 {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Style cho chữ số tiền Thu/Chi */
+.moneycome, .moneyout {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.moneycome {
+    color: var(--income-color);
+}
+
+.moneyout {
+    color: var(--expense-color);
+}
+
+/* 6. Lịch sử giao dịch */
+.list {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.list li {
+    background-color: #f8fafc;
+    box-shadow: var(--box-shadow);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* Viền phân biệt khoản thu/chi do JS sinh ra */
+.list li.plus {
+    border-right: 5px solid var(--income-color);
+}
+
+.list li.minus {
+    border-right: 5px solid var(--expense-color);
+}
+
+/* Nút xóa (Ẩn đi, chỉ hiện khi di chuột vào giao dịch) */
+.delete-btn {
+    cursor: pointer;
+    background-color: var(--expense-color);
+    border: 0;
+    color: #fff;
+    font-size: 14px;
+    padding: 6px 10px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    border-radius: 6px 0 0 6px;
+}
+
+.list li:hover .delete-btn {
+    opacity: 1;
+}
+
+/* 7. Form thêm giao dịch */
+/* Gọi cả hai class đề phòng trường hợp bạn chưa sửa thẻ HTML */
+.form-control, .form_control {
+    margin: 15px 0;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input[type='text'],
+input[type='number'],
+select {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    display: block;
+    font-size: 15px;
+    padding: 12px;
+    width: 100%;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* 8. Nút Thêm giao dịch */
+.btn {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    box-shadow: var(--box-shadow);
+    color: #fff;
+    border: 0;
+    display: block;
+    font-size: 16px;
+    margin-top: 25px;
+    padding: 14px;
+    width: 100%;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+    background-color: #4f46e5;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
